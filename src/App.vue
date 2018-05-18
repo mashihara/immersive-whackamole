@@ -47,7 +47,12 @@ export default {
   },
   methods: {
     gameStart: function() {
-      console.log('I was clicked!');
+      this.timerId = setInterval( () => {
+        this.timer--;
+        if(this.timer < 0){
+          clearInterval(this.timerId);
+        }
+      },100)
     },
     handleWhack: function(moleId) {
       this.score++;
